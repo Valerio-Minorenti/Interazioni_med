@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drug Interaction Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h2>Drug Interaction Table</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Drug</th>
+                <th>Description</th>
+                <th>Major Drug Interaction</th>
+                <th>Moderate Drug Interaction</th>
+                <th>Minor Drug Interaction</th>
+                <th>Major Alcohol Interaction</th>
+                <th>Moderate Alcohol Interaction</th>
+                <th>Minor Alcohol Interaction</th>
+                <th>Major Food Interaction</th>
+                <th>Moderate Food Interaction</th>
+                <th>Minor Food Interaction</th>
+                <th>Major Disease Interaction</th>
+                <th>Moderate Disease Interaction</th>
+                <th>Minor Disease Interaction</th>
+            </tr>
+        </thead>
+        <tbody id="drugTableBody">
+        </tbody>
+    </table>
+
+    <script>
+    async function fetchDrugData() {
+        try {
+            const response = await fetch('drugs.json'); // Assicurati che il file JSON sia nella stessa cartella
+            const data = await response.json();
+            populateTable(data);
+        } catch (error) {
+            console.error("Errore nel caricamento del JSON:", error);
+        }
+    }
+
+    function populateTable(data) {
+        const tableBody = document.getElementById("drugTableBody");
+        tableBody.innerHTML = ""; // Pulisce la tabella prima di riempirla
+
+        data.forEach(drug => {
+            const row = document.createElement("tr");
+            
+            Object.keys(drug).forEach(key => {
+                const cell = document.createElement("td");
+                cell.textContent = drug[key] !== "\\" ? drug[key] : "N/A";
+                row.appendChild(cell);
+            });
+
+            tableBody.appendChild(row);
+        });
+    }
+
+    fetchDrugData();
+</script>
+</body>
+</html>
