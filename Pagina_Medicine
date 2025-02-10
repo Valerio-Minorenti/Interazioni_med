@@ -47,7 +47,7 @@
     <script>
     async function fetchDrugData() {
         try {
-            const response = await fetch('drugs.json'); // Assicurati che il file JSON sia nella stessa cartella
+            const response = await fetch('Drugs_Interaction.json');
             const data = await response.json();
             populateTable(data);
         } catch (error) {
