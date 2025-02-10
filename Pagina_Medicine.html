@@ -46,7 +46,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            fetch('Drugs_Interaction.json') // Assicurati che il file JSON sia nella stessa cartella del file HTML
+            fetch('drugs_Interactions.json') // Nome corretto del file JSON
                 .then(response => response.json())
                 .then(data => {
                     let tableBody = document.getElementById('drugTableBody');
@@ -57,18 +57,18 @@
                         row.innerHTML = `
                             <td>${drug.Drug}</td>
                             <td>${drug.Description}</td>
-                            <td>${drug["Major Drug Interaction"]}</td>
-                            <td>${drug["Moderate Drug Interaction"]}</td>
-                            <td>${drug["Minor Drug Interaction"]}</td>
-                            <td>${drug["Major Alcohol Interaction"]}</td>
-                            <td>${drug["Moderate Alcohol Interaction"]}</td>
-                            <td>${drug["Minor Alcohol Interaction"]}</td>
-                            <td>${drug["Major Food Interaction"]}</td>
-                            <td>${drug["Moderate Food Interaction"]}</td>
-                            <td>${drug["Minor Food Interaction"]}</td>
-                            <td>${drug["Major Disease Interaction"]}</td>
-                            <td>${drug["Moderate Disease Interaction"]}</td>
-                            <td>${drug["Minor Disease Interaction"]}</td>
+                            <td>${drug["Major Drug Interaction"] || "N/A"}</td>
+                            <td>${drug["Moderate Drug Interaction"] || "N/A"}</td>
+                            <td>${drug["Minor Drug Interaction"] || "N/A"}</td>
+                            <td>${drug["Major Alcohol Interaction"] || "N/A"}</td>
+                            <td>${drug["Moderate Alcohol Interaction"] || "N/A"}</td>
+                            <td>${drug["Minor Alcohol Interaction"] || "N/A"}</td>
+                            <td>${drug["Major Food Interaction"] || "N/A"}</td>
+                            <td>${drug["Moderate Food Interaction"] || "N/A"}</td>
+                            <td>${drug["Minor Food Interaction"] || "N/A"}</td>
+                            <td>${drug["Major Disease Interaction"] || "N/A"}</td>
+                            <td>${drug["Moderate Disease Interaction"] || "N/A"}</td>
+                            <td>${drug["Minor Disease Interaction"] || "N/A"}</td>
                         `;
                         
                         tableBody.appendChild(row);
