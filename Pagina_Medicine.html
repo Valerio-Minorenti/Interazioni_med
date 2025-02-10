@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,24 +7,40 @@
     <title>Drug Interaction Table</title>
     <style>
         table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid black;
-            padding: 10px;
-            text-align: left;
-        }
-        th {
-            background-color: #f4f4f4;
-        }
-        td {
-    white-space: pre-wrap;  /* Mantiene gli a capo */
-    word-break: break-word;  /* Spezza parole lunghe */
-    max-width: none;         /* Nessun limite di larghezza */
-    overflow: visible;       /* Mostra tutto senza nascondere */
-    font-size: 14px;         /* Testo leggibile */
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto; /* Permette alle colonne di espandersi */
 }
+
+th, td {
+    border: 1px solid black;
+    padding: 15px; /* Più spazio dentro le celle */
+    text-align: left;
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-size: 14px;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+/* Definisci la larghezza minima di ogni colonna */
+th:nth-child(1), td:nth-child(1) { min-width: 150px; } /* Drug */
+th:nth-child(2), td:nth-child(2) { min-width: 400px; } /* Description */
+th:nth-child(3), td:nth-child(3) { min-width: 300px; } /* Major Drug Interaction */
+th:nth-child(4), td:nth-child(4) { min-width: 300px; } /* Moderate Drug Interaction */
+th:nth-child(5), td:nth-child(5) { min-width: 300px; } /* Minor Drug Interaction */
+th:nth-child(6), td:nth-child(6) { min-width: 250px; } /* Major Alcohol Interaction */
+th:nth-child(7), td:nth-child(7) { min-width: 250px; } /* Moderate Alcohol Interaction */
+th:nth-child(8), td:nth-child(8) { min-width: 250px; } /* Minor Alcohol Interaction */
+th:nth-child(9), td:nth-child(9) { min-width: 250px; } /* Major Food Interaction */
+th:nth-child(10), td:nth-child(10) { min-width: 250px; } /* Moderate Food Interaction */
+th:nth-child(11), td:nth-child(11) { min-width: 250px; } /* Minor Food Interaction */
+th:nth-child(12), td:nth-child(12) { min-width: 300px; } /* Major Disease Interaction */
+th:nth-child(13), td:nth-child(13) { min-width: 300px; } /* Moderate Disease Interaction */
+th:nth-child(14), td:nth-child(14) { min-width: 300px; } /* Minor Disease Interaction */
+       
     </style>
 </head>
 <body>
